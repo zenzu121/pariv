@@ -1,0 +1,688 @@
+:root {
+    /* Color Palette */
+    --primary-blue: #1DA5EF;
+    --primary-blue-dark: #1DA5EF;
+    --primary-blue-light: #1DA5EF;
+    --sub-header-bg: #49bbf8;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+
+    /* Text Colors */
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --border-color: #cbd5e1;
+    --danger: #ef4444;
+
+    /* APK Button Colors */
+    /* Vibrant, attention-grabbing Green Gradient */
+    --apk-grad-1: #22c55e;
+    --apk-grad-2: #15803d;
+    --glow-color: rgba(34, 197, 94, 0.4);
+
+    /* Shadows & Effects */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 20px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ---------------------- HEADER ---------------------- */
+.main-header {
+    background: linear-gradient(135deg, var(--primary-blue-dark), var(--primary-blue));
+    color: white;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    z-index: 10;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.header-left,
+.header-center,
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* User Logo Placeholders */
+.logo-placeholder,
+.brand-logo-placeholder,
+.nic-logo,
+.digital-india-logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.logo-placeholder:hover,
+.brand-logo-placeholder:hover {
+    transform: scale(1.02);
+}
+
+.logo-placeholder img,
+.brand-logo-placeholder img,
+.footer-logos img {
+    max-height: 55px;
+    object-fit: contain;
+}
+
+.logo-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    border: 2px dashed rgba(255, 255, 255, 0.4);
+    text-align: center;
+}
+
+.brand-logo-placeholder .logo-fallback {
+    width: auto;
+    height: auto;
+    background: transparent;
+    border: none;
+    flex-direction: row;
+    gap: 0.75rem;
+}
+
+.brand-logo-placeholder .logo-fallback i {
+    font-size: 2.5rem;
+}
+
+.fallback-brand-text {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    line-height: 1.1;
+}
+
+.titles .hindi-title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+    opacity: 0.9;
+}
+
+.titles .english-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+}
+
+.header-right {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.datetime-block {
+    display: flex;
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.date-label,
+.time-label {
+    color: rgba(255, 255, 255, 0.7);
+    margin-right: 0.25rem;
+}
+
+.text-size-controls {
+    display: flex;
+    gap: 0.35rem;
+}
+
+.ts-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+.ts-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+.ts-btn.active {
+    background: white;
+    color: var(--primary-blue-dark);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------------------- SUB HEADER ---------------------- */
+.sub-header {
+    background-color: var(--sub-header-bg);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.sub-header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.sub-header h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------------------- MAIN CONTENT ---------------------- */
+.main-content {
+    flex-grow: 1;
+    padding: 3rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form-container {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 900px;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-blue-light), var(--primary-blue-dark));
+}
+
+.update-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.form-group.full-width {
+    flex: 100%;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.required {
+    color: var(--danger);
+    font-weight: 800;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--text-main);
+    transition: var(--transition);
+    background-color: #f8fafc;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+}
+
+.captcha-row {
+    align-items: flex-end;
+}
+
+.captcha-display {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 52px;
+    /* Match input height */
+}
+
+/* Simulated Captcha Image Background */
+.captcha-image {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="50"><rect width="100%" height="100%" fill="%23f1f5f9"/><text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="28" font-weight="900" fill="%2316a34a" opacity="0.8" style="text-decoration: line-through decoration-wavy">YYW7u</text></svg>') center/cover no-repeat;
+    width: 140px;
+    height: 100%;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    /* Render text via SVG */
+}
+
+.refresh-captcha {
+    background: rgba(14, 165, 233, 0.05);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    color: var(--primary-blue-dark);
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+    padding: 0.6rem 1rem;
+    border-radius: var(--radius-md);
+}
+
+.refresh-captcha:hover {
+    background: rgba(14, 165, 233, 0.15);
+    transform: translateY(-1px);
+}
+
+.refresh-captcha i {
+    transition: transform 0.4s ease;
+}
+
+.refresh-captcha:hover i {
+    transform: rotate(180deg);
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 0.85rem 2.5rem;
+    border-radius: var(--radius-md);
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: white;
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-blue-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(14, 165, 233, 0.4);
+}
+
+.btn-secondary {
+    background-color: #f1f5f9;
+    color: var(--text-main);
+    border: 2px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: #e2e8f0;
+    border-color: #94a3b8;
+}
+
+/* ---------------------- PREMIUM APK BUTTON SECTION ---------------------- */
+.apk-download-section {
+    margin-top: 3.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.divider span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--card-bg);
+    padding: 0 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.apk-subtitle {
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.btn-download-apk {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--apk-grad-1), var(--apk-grad-2));
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem;
+    padding-right: 2.5rem;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px var(--glow-color), inset 0 -3px 0 rgba(0, 0, 0, 0.15);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    gap: 1.25rem;
+    animation: floating 3s ease-in-out infinite;
+}
+
+/* Shine Effect */
+.btn-download-apk::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: skewX(-20deg);
+    animation: shine 4s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+
+    15% {
+        left: 200%;
+    }
+
+    100% {
+        left: 200%;
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.btn-download-apk:hover {
+    transform: translateY(-8px) scale(1.03) !important;
+    box-shadow: 0 15px 35px var(--glow-color), inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+    animation-play-state: paused;
+}
+
+.btn-download-apk .icon-wrapper {
+    background: white;
+    color: var(--apk-grad-2);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.btn-download-apk .btn-texts {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    z-index: 2;
+}
+
+.btn-download-apk .btn-small-text {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0.95;
+    font-weight: 700;
+}
+
+.btn-download-apk .btn-large-text {
+    font-size: 1.7rem;
+    font-weight: 900;
+    line-height: 1.1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-download-apk .download-icon {
+    margin-left: 0.5rem;
+    font-size: 1.5rem;
+    opacity: 0.9;
+    transition: transform 0.3s ease;
+    z-index: 2;
+}
+
+.btn-download-apk:hover .download-icon {
+    transform: translateY(4px);
+}
+
+/* ---------------------- FOOTER ---------------------- */
+.main-footer {
+    background-color: var(--primary-blue-dark);
+    color: white;
+    padding: 4rem 2rem 2rem 2rem;
+    margin-top: auto;
+    position: relative;
+}
+
+.main-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--sub-header-bg);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.footer-logos {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.logo-fallback-text {
+    font-size: 1.05rem;
+    line-height: 1.3;
+}
+
+.logo-fallback-text .small-text {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.footer-links-grid {
+    display: flex;
+    gap: 5rem;
+    flex-wrap: wrap;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: white;
+    text-decoration: underline;
+    transform: translateX(3px);
+    display: inline-block;
+}
+
+/* ---------------------- RESPONSIVE ---------------------- */
+@media (max-width: 1024px) {
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .header-left {
+        flex-direction: column;
+    }
+
+    .header-center {
+        margin: 1rem 0;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-links-grid {
+        justify-content: space-between;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-container {
+        padding: 1.5rem;
+    }
+
+    .datetime-block {
+        flex-direction: column;
+        gap: 0.25rem;
+        align-items: center;
+    }
+
+    .btn-download-apk {
+        padding-right: 1.5rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn-download-apk .btn-large-text {
+        font-size: 1.3rem;
+    }
+
+    .btn-download-apk .icon-wrapper {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+    }
+
+    .footer-logos {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .footer-links-grid {
+        flex-direction: column;
+    }
+}
